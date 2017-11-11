@@ -1,0 +1,8 @@
+<%= form_for @game do |g| %>
+  <!-- TODO: put all logic for choosing players and weapons here -->
+  <%= g.fields_for :players do |p| %>
+    <%= render 'players/form', p: p %>
+  <% end %>
+   <!--  choose your opponent -->
+  <%= g.submit 'Ready? Fight!' %>
+<% end %>

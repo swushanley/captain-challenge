@@ -5,9 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Player.destroy_all
+Weapon.destroy_all
 
-Player.create(user_player: false, name: "Dumbledore")
-Player.create(user_player: false, name: "Snape")
-Player.create(user_player: false, name: "Lord Voldemort")
-Player.create(user_player: false, name: "Hedwig")
-Player.create(user_player: false, name: "Hermione")
+Player.create(user_player: false, name: "Fighter_1")
+Player.create(user_player: false, name: "Fighter_2")
+
+Weapon.create(name: "Axe")
+Weapon.create(name: "Knife")

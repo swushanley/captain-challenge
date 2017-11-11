@@ -1,5 +1,13 @@
 class GamesController < ApplicationController
 
+  def index
+    @games = Game.order(created_at: :desc)
+  end
+
+  def show
+    @game = Game.find(params[:id])
+  end
+
   def new
     @game = Game.new
     @game.players.build
@@ -7,11 +15,10 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    # @player = params["game"]["players_attributes"]["0"]
-    @player = Player.new
     if @game.save
-      redirect_to games_path
-      # TODO: change this to running the game
+      redirect_to game_(@game)
+    else
+      render action: :new
     end
   end
 
@@ -24,8 +31,7 @@ class GamesController < ApplicationController
   protected
 
   def game_params
-    # TODO: fix the problem with players_attributes
-    params.require(:game).permit(:winner, :loser, players_attributes: [:name])
+    params.require(:game).permit(:winner, :loser, players_attributes: [:name, weapons_attributes: [:id]])
   end
 
 end

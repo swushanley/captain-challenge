@@ -1,11 +1,2 @@
 <h1>new game page</h1>
-<%= form_for @game do |f| %>
-  <!-- TODO: put all logic for choosing players and weapons here -->
-  <%= f.fields_for :players do |builder| %>
-    <fieldset>
-      <%= builder.label :name, "Name your player" %>
-      <%= builder.text_field :name %>
-    </fieldset>
-  <% end %>
-  <%= f.submit :save %>
-<% end %>
+<%= render 'form' %>

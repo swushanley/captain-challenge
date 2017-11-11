@@ -1,0 +1,10 @@
+
+<p>
+  <%= p.label :name, "Name your player" %>
+  <%= p.text_field :name %>
+</p>
+<%= p.fields_for :weapons do |w| %>
+  <%= render 'weapons/form', w: w %>
+<% end %>
+
+<p><%= link_to_add_fields 'Add Weapon', p, :weapons %><p>
