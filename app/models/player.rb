@@ -11,7 +11,6 @@ class Player < ApplicationRecord
     return false
   end
 
-
   def attack_force
     self.strength * (self.weapons.first.power + rand(10))
   end
@@ -21,22 +20,14 @@ class Player < ApplicationRecord
   end
 
   def attack(opponent)
+    damage_created = attack_force
+    opponent.health -= damage_created
     self.strength -= (agility / 100 )
-    # reduce opponent health
+    self.damage += damage_created
   end
 
   def defend(attacker)
-    damage = attack_force
-    self.health -= damage
+    self.health -= rand(10)
   end
-
-  def wins
-    self.games.select {|game| game.winner == self }
-  end
-
-  def losses
-    self.games.select {|game| game.winner != self }
-  end
-
 
 end

@@ -1,6 +1,4 @@
 <%= form_for @game do |g| %>
-  <!-- TODO: put all logic for choosing players and weapons here -->
   <p><%= link_to_add_fields 'Add Player', g, :players %><p>
-   <!--  choose your opponent -->
   <%= g.submit 'Ready? Fight!' %>
 <% end %>

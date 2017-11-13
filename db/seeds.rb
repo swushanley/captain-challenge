@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Player.destroy_all
 Weapon.destroy_all
+Game.destroy_all
+Statistic.destroy_all
 
 Player.create(user_player: false, name: "Fighter_1")
 Player.create(user_player: false, name: "Fighter_2")
