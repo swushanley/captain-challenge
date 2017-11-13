@@ -1,1 +1,35 @@
-// @import "materialize";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+a {
+  color: #333333;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #686868;
+}
+
+.navbar-default {
+  background-color: #e11936;
+}
+
+.btn-danger {
+  background-color: #e11936;
+}
+
+.card {
+  background-color: #e6e6e6;
+  min-height: 100vh;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.javascript-form {
+  padding: 20px;
+}
+
+.title {
+  color: white;
+  padding: 10px;
+}
