@@ -1,4 +1,6 @@
 <%= form_for @game do |g| %>
-  <p><%= link_to_add_fields 'Add Player', g, :players %><p>
-  <%= g.submit 'Ready? Fight!', class: "btn btn-danger" %>
+  <div class="row col-md-offset-2">
+    <p><%= link_to_add_fields 'Add Player', g, :players %><p>
+  </div>
+  <div class="row col-md-offset-2"><%= g.submit 'Ready? Fight!', class: "btn btn-danger" %></div>
 <% end %>
