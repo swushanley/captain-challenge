@@ -1,3 +1,12 @@
-<h1>WELCOME TO THE ARENA</h1>
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/289831/pexels-photo-289831.jpeg');">
+  <div class="row">
+    <h1>WELCOME TO THE ARENA</h1>
+  </div>
+  <div class="row">
+    <p>On this battleground, two heroes fight to the death with swords, axes, and knives. <br> Dare to fight and see your name go down in history on the stats board. </p>
+  </div>
+  <div class="row">
+    <p><%= link_to "Choose your players", new_game_path, class: "btn btn-danger" %></p>
+  </div>
+</div>

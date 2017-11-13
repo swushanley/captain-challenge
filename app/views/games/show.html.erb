@@ -1,26 +1,26 @@
 <h1>The winner is: <%= Player.find(@game.winner_id).name %></h1>
 
-<h1>Battle History</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Battle</th>
-      <th>Damage</th>
-      <th></th>
-      <th>Winner</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @statistics.each do |stat| %>
-    <tr>
-      <td><%= stat.game_name %></td>
-      <td><%= Player.find(stat.player_1_id).name %>, <%= Player.find(stat.player_1_id).damage %></td>
-      <td><%= Player.find(stat.player_2_id).name %>, <%= Player.find(stat.player_2_id).damage %></td>
-   <!--    name of player whose id is the same as the winner_id in the game -->
-      <td><%= Player.find(Game.find(stat.game_id).winner_id).name %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-
+<div class="container">
+  <h2>Battle History</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Battle</th>
+        <th>Damage (player, damage created)</th>
+        <th></th>
+        <th>Winner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @statistics.each do |stat| %>
+      <tr>
+        <td><%= stat.game_name %></td>
+        <td><%= Player.find(stat.player_1_id).name %>, <%= Player.find(stat.player_1_id).damage %></td>
+        <td><%= Player.find(stat.player_2_id).name %>, <%= Player.find(stat.player_2_id).damage %></td>
+        <td><%= Player.find(Game.find(stat.game_id).winner_id).name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <p><%= link_to "Fight again", new_game_path, class: "btn btn-danger" %></p>
+</div>

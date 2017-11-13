@@ -12,22 +12,21 @@ class Player < ApplicationRecord
   end
 
   def attack_force
-    self.strength * (self.weapons.first.power + rand(10))
+    (self.strength / 100) * (self.weapons.first.power + rand(10))
   end
 
   def agility
-    100 - self.weapons.first.speed
+    20 - self.weapons.first.speed
   end
 
   def attack(opponent)
-    damage_created = attack_force
-    opponent.health -= damage_created
-    self.strength -= (agility / 100 )
-    self.damage += damage_created
+    opponent.health -= attack_force
+    self.damage += attack_force
+    self.strength -= (agility / 10)
   end
 
   def defend(attacker)
-    self.health -= rand(10)
+    self.health -= rand(5)
   end
 
 end

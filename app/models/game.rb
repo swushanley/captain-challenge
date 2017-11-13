@@ -18,9 +18,9 @@ class Game < ApplicationRecord
       player_2.send([:defend, :attack].sample, player_1)
       if player_1.health <= 0 || player_2.health <= 0
         if player_1.health > player_2.health
-          break [player_1.id, player_1.damage]
+          break [player_1.id, player_1.damage, player_2.damage]
         else
-          break [player_2.id, player_2.damage]
+          break [player_2.id, player_2.damage, player_1.damage]
         end
       end
     end
