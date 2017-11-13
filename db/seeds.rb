@@ -11,5 +11,5 @@ Weapon.destroy_all
 Player.create(user_player: false, name: "Fighter_1")
 Player.create(user_player: false, name: "Fighter_2")
 
-Weapon.create(name: "Axe")
-Weapon.create(name: "Knife")
+Weapon.create(name: "Axe", power: 70, speed: 20)
+Weapon.create(name: "Knife", power: 25, speed: 65)

@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110124654) do
+ActiveRecord::Schema.define(version: 20171113123209) do
 
   create_table "games", force: :cascade do |t|
-    t.string "player_1"
-    t.string "player_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "winner_id"
   end
 
   create_table "games_players", id: false, force: :cascade do |t|
     t.integer "game_id"
     t.integer "player_id"
+  end
+
+  create_table "games_weapons", force: :cascade do |t|
+    t.integer "games_id"
+    t.integer "weapons_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -30,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171110124654) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "user_player", default: true
-    t.integer "strength", default: 100
+    t.integer "strength", default: 1
   end
 
   create_table "players_weapons", force: :cascade do |t|
@@ -42,6 +46,8 @@ ActiveRecord::Schema.define(version: 20171110124654) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "power"
+    t.integer "speed"
   end
 
 end

@@ -10,28 +10,24 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @game.players.build
+    player = @game.players.build
+    player.weapons.build
   end
 
   def create
     @game = Game.new(game_params)
     if @game.save
-      redirect_to game_(@game)
+      @game.update(winner_id: @game.run_game)
+      redirect_to game_path(@game)
     else
       render action: :new
     end
   end
 
-  def index
-  end
-
-  def show
-  end
-
   protected
 
   def game_params
-    params.require(:game).permit(:winner, :loser, players_attributes: [:name, weapons_attributes: [:id]])
+    params.require(:game).permit(:winner, :loser, players_attributes: [:name, weapons_attributes: [:id, :name], weapons: [:name] ] )
   end
 
 end
